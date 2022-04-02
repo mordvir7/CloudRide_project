@@ -8,7 +8,9 @@ phases:
       - echo Logging in to Amazon ECR...
       - REGION=eu-west-1
       #- $(aws ecr get-login --region eu-west-1 --no-include-email)
-      - aws ecr get-login --region eu-west-1 --no-include-email
+      - ls
+      - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 753392824297.dkr.ecr.eu-west-1.amazonaws.com
+      - ls
       - REPOSITORY_URI=${repository_url}
       - IMAGE_TAG=latest
       - echo Entered the pre_build phase...
